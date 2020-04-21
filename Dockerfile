@@ -16,4 +16,9 @@ RUN cd /app \
     && ./install.sh --connectors=all --acceptlicenses --nousage --notestextras \
     && ln -s /root/.pipelinewise /app/.pipelinewise
 
+RUN ls -l /etc/localtime
+RUN rm -rf /etc/localtime
+RUN ln -s /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
+RUN ls -l /etc/localtime
+
 ENTRYPOINT ["/app/entrypoint.sh"]
